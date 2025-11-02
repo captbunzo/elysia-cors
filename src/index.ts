@@ -211,7 +211,7 @@ export const cors = (config?: CORSConfig) => {
 			: [origin]
 
 	const app = new Elysia({
-		name: '@elysiajs/cors',
+		name: '@captbunzo/elysia-cors',
 		seed: config,
 		aot
 	})

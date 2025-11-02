@@ -1,15 +1,15 @@
 {
-    "name": "@elysiajs/cors",
-    "version": "1.4.0",
-    "description": "Plugin for Elysia that for Cross Origin Requests (CORs)",
+    "name": "@captbunzo/elysia-cors",
+    "version": "1.4.1",
+    "description": "Plugin for Elysia that for Cross Origin Requests (CORs) with async origin support",
     "author": {
-        "name": "saltyAom",
-        "url": "https://github.com/SaltyAom",
-        "email": "saltyaom@gmail.com"
+        "name": "captbunzo",
+        "url": "https://github.com/captbunzo",
+        "email": "captbunzo@users.noreply.github.com"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/elysiajs/elysia-cors"
+        "url": "https://github.com/captbunzo/elysia-cors"
     },
     "main": "./dist/cjs/index.js",
     "module": "./dist/index.mjs",
@@ -22,7 +22,7 @@
             "require": "./dist/cjs/index.js"
         }
     },
-    "homepage": "https://github.com/elysiajs/elysia-cors",
+    "homepage": "https://github.com/captbunzo/elysia-cors",
     "keywords": [
         "elysia",
         "cors"

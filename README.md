@@ -1,15 +1,17 @@
-# @elysiajs/cors
-Plugin for [elysia](https://github.com/elysiajs/elysia) that for Cross Origin Requests (CORs)
+# @captbunzo/elysia-cors
+Plugin for [elysia](https://github.com/elysiajs/elysia) that for Cross Origin Requests (CORs) with async origin support
+
+**Fork Note**: This is a fork of the official @elysiajs/cors package that adds support for asynchronous origin functions. Once the [upstream PR #73](https://github.com/elysiajs/elysia-cors/pull/73) is merged, consider switching back to the official package.
 
 ## Installation
 ```bash
-bun add @elysiajs/cors
+bun add @captbunzo/elysia-cors
 ```
 
 ## Example
 ```typescript
 import { Elysia } from 'elysia'
-import { cors } from '@elysiajs/cors'
+import { cors } from '@captbunzo/elysia-cors'
 
 const app = new Elysia()
     .use(cors())
@@ -40,6 +42,20 @@ Value can be one of the following:
     // Type Definition
     type CORSOriginFn = (context: Context) => boolean | void | Promise<boolean | void>
     ```
+
+#### Async Origin Functions (New Feature)
+This fork adds support for asynchronous origin validation functions. You can now perform database lookups, API calls, or other async operations to determine if an origin should be allowed:
+
+```typescript
+app.use(cors, {
+    origin: async ({ request }) => {
+        const origin = request.headers.get('origin')
+        // Example: Check with external service or database
+        const isAllowed = await checkOriginInDatabase(origin)
+        return isAllowed
+    }
+})
+```
 
 - `Array<string | RegExp | Function>` - Will try to find truthy value of all options above. Will accept Request if one is `true`.
 

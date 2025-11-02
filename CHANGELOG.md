@@ -1,3 +1,10 @@
+# 1.4.1 - 2 Nov 2024
+Fork Release:
+- Added support for asynchronous origin functions (PR #73)
+- Origin functions can now return `Promise<boolean | void>`
+- Concurrent evaluation for origin arrays using `Promise.all`
+- All CORS handlers updated to support async origin validation
+
 # 1.3.3 - 15 May 2025
 Bug fix:
 - Using Bun shortcut to mirror headers
